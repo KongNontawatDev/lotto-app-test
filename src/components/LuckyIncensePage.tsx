@@ -659,7 +659,7 @@ export function LuckyIncensePage({ onBack, onNavigateHome }: LuckyIncensePagePro
                     justifyContent: 'center'
                   }}
                 >
-                  {!isRevealing && !candleLit && !incenseLeftLit && !incenseRightLit && (
+                  {/* {!isRevealing && !candleLit && !incenseLeftLit && !incenseRightLit && (
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -668,7 +668,7 @@ export function LuckyIncensePage({ onBack, onNavigateHome }: LuckyIncensePagePro
                     >
                       <p className="text-white font-medium">กดที่เทียนหรือเทียนเพื่อจุดไฟ</p>
                     </motion.div>
-                  )}
+                  )} */}
                 </div>
               </div>
 
