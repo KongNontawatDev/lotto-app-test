@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Moon, Star, Cloud, Sparkles, Calendar, RefreshCw, Home } from 'lucide-react'
 
@@ -222,7 +222,7 @@ const sectionVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.17, 0.67, 0.83, 0.67],
+      ease: "easeOut" as const,
     },
   },
 }
@@ -234,7 +234,7 @@ const resultVariants = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.17, 0.67, 0.83, 0.67],
+      ease: "easeOut" as const,
     },
   },
 }
@@ -497,7 +497,7 @@ function DreamDictionary() {
         animate="visible"
         className="grid grid-cols-1 gap-3"
       >
-        {DREAM_DICTIONARY.map((item, idx) => (
+        {DREAM_DICTIONARY.map((item) => (
           <motion.div
             key={item.keyword}
             variants={staggerItem}
@@ -550,7 +550,7 @@ function RecentDreams({ dreams }: { dreams: DreamData[] }) {
         animate="visible"
         className="space-y-3"
       >
-        {dreams.map((dream, idx) => (
+        {dreams.map((dream) => (
           <motion.div
             key={dream.id}
             variants={staggerItem}
@@ -634,7 +634,7 @@ function DreamToNumbersPage() {
       transition: {
         duration: 4,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       },
     },
   }
@@ -647,7 +647,7 @@ function DreamToNumbersPage() {
       transition: {
         duration: 3,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       },
     },
   }

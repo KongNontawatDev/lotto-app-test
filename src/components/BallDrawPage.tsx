@@ -19,8 +19,7 @@ export function BallDrawPage({ onBack, onNavigateHome }: BallDrawPageProps) {
   const [balls, setBalls] = useState<number[]>([])
   const [selectedBall, setSelectedBall] = useState<number | null>(null)
 
-  // สร้างตัวเลข 0-9 สำหรับลูกบอล
-  const numbers = Array.from({ length: 10 }, (_, i) => i)
+  // สร้างตัวเลข 0-9 สำหรับลูกบอล (ไม่ใช้แล้ว แต่เก็บไว้สำหรับอนาคต)
 
   // สร้างลูกบอลที่หมุนอยู่ในกล่อง
   useEffect(() => {
@@ -100,7 +99,7 @@ export function BallDrawPage({ onBack, onNavigateHome }: BallDrawPageProps) {
       opacity: 1,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 15,
       },
@@ -155,7 +154,7 @@ export function BallDrawPage({ onBack, onNavigateHome }: BallDrawPageProps) {
         transition: {
           duration: 1.5,
           repeat: Infinity,
-          ease: [0.4, 0, 0.6, 1],
+          ease: "easeInOut" as const,
           delay: index * 0.03,
         },
       }

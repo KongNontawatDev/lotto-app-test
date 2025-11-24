@@ -28,16 +28,19 @@ export function BackgroundMusic() {
       } catch (error) {
         // ถ้าไม่สามารถเล่นได้ (browser autoplay policy)
         // รอ user interaction แล้วเล่น
+        let hasPlayed = false
         const handleUserInteraction = () => {
+          if (hasPlayed) return
+          hasPlayed = true
           audio.play().catch(() => {})
           // ลบ event listeners หลังจากเล่นแล้ว
-          document.removeEventListener('click', handleUserInteraction, { once: true })
-          document.removeEventListener('touchstart', handleUserInteraction, { once: true })
-          document.removeEventListener('keydown', handleUserInteraction, { once: true })
+          document.removeEventListener('click', handleUserInteraction)
+          document.removeEventListener('touchstart', handleUserInteraction)
+          document.removeEventListener('keydown', handleUserInteraction)
         }
-        document.addEventListener('click', handleUserInteraction, { once: true })
-        document.addEventListener('touchstart', handleUserInteraction, { once: true })
-        document.addEventListener('keydown', handleUserInteraction, { once: true })
+        document.addEventListener('click', handleUserInteraction, { passive: true })
+        document.addEventListener('touchstart', handleUserInteraction, { passive: true })
+        document.addEventListener('keydown', handleUserInteraction)
       }
     }
     

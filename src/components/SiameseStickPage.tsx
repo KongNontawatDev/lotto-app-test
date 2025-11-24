@@ -164,7 +164,7 @@ export function SiameseStickPage({ onBack, onNavigateHome }: SiameseStickPagePro
   const [isShaking, setIsShaking] = useState(false)
   const [result, setResult] = useState<StickResult | null>(null)
   const [isRevealing, setIsRevealing] = useState(false)
-  const [shakeIntensity, setShakeIntensity] = useState(0)
+  // const [shakeIntensity, setShakeIntensity] = useState(0) // ไม่ใช้แล้ว
   const [history, setHistory] = useState<StickResult[]>([])
   const shakeCountRef = useRef(0)
   const lastShakeTimeRef = useRef(0)
@@ -365,7 +365,7 @@ export function SiameseStickPage({ onBack, onNavigateHome }: SiameseStickPagePro
       transition: {
         duration: 0.5,
         repeat: 3,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       },
     },
   }
@@ -378,7 +378,7 @@ export function SiameseStickPage({ onBack, onNavigateHome }: SiameseStickPagePro
       transition: {
         duration: 0.3,
         repeat: 5,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       },
     },
   }

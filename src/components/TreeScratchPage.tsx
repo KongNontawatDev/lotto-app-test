@@ -338,7 +338,7 @@ export function TreeScratchPage({ onBack, onNavigateHome }: TreeScratchPageProps
     // Increment scratch count for timing-based reveals
     scratchCountRef.current += 1
     const currentTime = Date.now()
-    const timeSinceLastScratch = currentTime - lastScratchTimeRef.current
+    // const timeSinceLastScratch = currentTime - lastScratchTimeRef.current // ไม่ใช้แล้ว
     lastScratchTimeRef.current = currentTime
 
     // Reveal numbers based on scratch count and timing (more realistic)

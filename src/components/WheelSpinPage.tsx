@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowLeft, RotateCcw, Home, Sparkles } from 'lucide-react'
 
@@ -148,7 +148,7 @@ export function WheelSpinPage({ onBack, onNavigateHome }: WheelSpinPageProps) {
       opacity: 1,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 15,
       },
@@ -313,11 +313,10 @@ export function WheelSpinPage({ onBack, onNavigateHome }: WheelSpinPageProps) {
                     style={{
                       // conic-gradient เริ่มจาก 0 องศา (บนสุด) และหมุนตามเข็มนาฬิกา
                       background: 'conic-gradient(from 0deg, ' +
-                        numbers.map((num, index) => {
+                        numbers.map((_num, index) => {
                           const startAngle = index * anglePerNumber
                           const endAngle = (index + 1) * anglePerNumber
                           const color1 = index % 2 === 0 ? '#F4D03F' : '#D4AF37'
-                          const color2 = index % 2 === 0 ? '#D4AF37' : '#F4D03F'
                           return `${color1} ${startAngle}deg ${endAngle}deg`
                         }).join(', ') +
                         ')',
