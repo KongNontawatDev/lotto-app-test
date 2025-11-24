@@ -189,7 +189,7 @@ export function SiameseStickPage({ onBack, onNavigateHome }: SiameseStickPagePro
         handleShake()
       }
 
-      setShakeIntensity(intensity)
+      // setShakeIntensity(intensity) // ไม่ใช้แล้ว
     }
 
     // Request permission for iOS 13+
@@ -308,7 +308,7 @@ export function SiameseStickPage({ onBack, onNavigateHome }: SiameseStickPagePro
     setIsShaking(false)
     setResult(null)
     setIsRevealing(false)
-    setShakeIntensity(0)
+    // setShakeIntensity(0) // ไม่ใช้แล้ว
     shakeCountRef.current = 0
     lastShakeTimeRef.current = 0
     hasShakenRef.current = false

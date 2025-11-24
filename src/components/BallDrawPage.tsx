@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import { ArrowLeft, RotateCcw, Home, Sparkles } from 'lucide-react'
 
 interface BallDrawPageProps {
@@ -131,7 +132,7 @@ export function BallDrawPage({ onBack, onNavigateHome }: BallDrawPageProps) {
     }),
   }
 
-  const ballVariants = {
+  const ballVariants: Variants = {
     spinning: (index: number) => {
       const baseX = (Math.random() - 0.5) * 150
       const baseY = (Math.random() - 0.5) * 150
@@ -166,7 +167,7 @@ export function BallDrawPage({ onBack, onNavigateHome }: BallDrawPageProps) {
       rotate: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 20,
         mass: 0.5,
