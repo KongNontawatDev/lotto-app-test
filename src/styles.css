@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3024AE;
+  --color-secondary: #C86CD7;
+  --color-primary-light: #4A3FC7;
+  --color-primary-dark: #1E1870;
+  --color-secondary-light: #E08FE8;
+  --color-secondary-dark: #A84BB8;
+  --color-gold: #3024AE;
+  --color-gold-light: #C86CD7;
+  --color-gold-dark: #1E1870;
+}
+
+body {
+  @apply m-0;
+  font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(48, 36, 174, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(200, 108, 215, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(48, 36, 174, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shimmer effect from magicui */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Gradient mesh animation */
+@keyframes gradient-mesh {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  33% {
+    transform: translate(30%, -30%);
+  }
+  66% {
+    transform: translate(-20%, 20%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+
+.gradient-mesh {
+  animation: gradient-mesh 15s ease infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Modern gradient pattern overlay - สำหรับการ์ดพิเศษ */
+.mystical-pattern {
+  position: relative;
+}
+
+.mystical-pattern::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(48, 36, 174, 0.08) 2px, rgba(48, 36, 174, 0.08) 4px),
+    repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(200, 108, 215, 0.08) 2px, rgba(200, 108, 215, 0.08) 4px);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Modern glow effects */
+.mystical-glow {
+  box-shadow: 
+    0 0 20px rgba(48, 36, 174, 0.5),
+    0 0 40px rgba(200, 108, 215, 0.3),
+    0 8px 24px rgba(48, 36, 174, 0.2);
+}
+
+.mystical-glow-purple {
+  box-shadow: 
+    0 0 20px rgba(48, 36, 174, 0.5),
+    0 0 40px rgba(48, 36, 174, 0.3),
+    0 8px 24px rgba(48, 36, 174, 0.2);
+}
+
+.mystical-glow-pink {
+  box-shadow: 
+    0 0 20px rgba(200, 108, 215, 0.5),
+    0 0 40px rgba(200, 108, 215, 0.3),
+    0 8px 24px rgba(200, 108, 215, 0.2);
+}
